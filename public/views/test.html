@@ -1,0 +1,29 @@
+<div 
+    ng-controller="TableController as vm"
+    ng-init="vm.getObjects()"
+    >
+    <table class="table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <td>name</td>
+                <td>created on</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.Objects">
+                <td>
+                    {{ item.name }}
+                </td>
+                <td>
+                    {{ item.dateCreated }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input 
+      type="file" 
+      ng-model="fileInput"
+      onchange="angular.element(this).scope().fileSelected(this)"
+      >
+    <button class="btn btn-large btn-primary" ng-click="vm.uploadImage()">Upload your shit dawg</button>
+</div>
