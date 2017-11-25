@@ -20,10 +20,17 @@
             </tr>
         </tbody>
     </table>
-    <input 
-      type="file" 
-      ng-model="fileInput"
-      onchange="angular.element(this).scope().fileSelected(this)"
-      >
-    <button class="btn btn-large btn-primary" ng-click="vm.uploadImage()">Upload your shit dawg</button>
+    <form 
+        name="myForm"
+        ng-submit="vm.uploadImage()" >
+        <input 
+            type="text"
+            ng-model="vm.formData.tags">
+        <input 
+            type="file" 
+            ng-model="vm.formData.file"
+            onchange="angular.element(this).scope().fileSelected(this)"
+        >
+        <button type="submit" class="btn btn-large btn-primary">Upload your shit dawg</button>
+    </form>
 </div>
