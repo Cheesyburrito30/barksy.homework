@@ -1,0 +1,18 @@
+<div
+    ng-controller="ItemController as vm"
+    ng-init="vm.onInit()">
+    <form 
+        name="myForm"
+        ng-submit="vm.uploadImage()" >
+        <input 
+            type="text"
+            ng-model="vm.formData.tags"
+            placeholder="Give it some tags!">
+        <input 
+            type="file" 
+            ng-model="vm.formData.file"
+            onchange="angular.element(this).scope().fileSelected(this)"
+        >
+        <button type="submit" class="btn btn-large btn-primary">Upload your shit dawg</button>
+    </form>
+</div>

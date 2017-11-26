@@ -5,9 +5,10 @@ dotenv.config()
 
 const Firebase = require('firebase'),
       TableController = require('./table/table.controller'),
+      ItemController = require('./item/item.controller')
       FileService = require('./file/file.service'),
-      AWS = require('aws-sdk');
-      AppRouteConfig = require('./app.routing.config')
+      AWS = require('aws-sdk'),
+      AppRouteConfig = require('./app.routing.config');
 
 
 angular.module('barksy', [
@@ -18,10 +19,11 @@ angular.module('barksy', [
 .constant('AWS', AWS)
 .config(['$routeProvider', AppRouteConfig])
 .controller('TableController', TableController)
+.controller('ItemController', ItemController)
 
 // firebase DB
 var firebaseConfig = {
-    apiKey: process.env.firebaseApiKey,
+    apiKey: "AIzaSyB9Y9L-k-SIc0HtGNgiaaSrv6Tb0Qph93I",
     authDomain: "barksy-homework.firebaseapp.com",
     databaseURL: "https://barksy-homework.firebaseio.com",
     projectId: "barksy-homework",
@@ -33,8 +35,8 @@ console.log(process.env.AWS_ACCESS_KEY_ID)
 Firebase.initializeApp(firebaseConfig);
 
 AWS.config.update({
-    accessKeyId: "AKIAII356TOHSUUFZMRA",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAISOLRJCHYFKNQTNQ",
+    secretAccessKey: "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",
     region: "us-east-2"
 })
 

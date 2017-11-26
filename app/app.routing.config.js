@@ -2,18 +2,23 @@ AppRouteConfig.$inject = ['$routeProvider'];
 
 function AppRouteConfig($routeProvider) {
     $routeProvider
-        .when('', {
-            template: '<p>asdf</p>'
-        })
         .when('/test', {
             templateUrl: 'views/test.html',
             controller: 'TableController'
         }).otherwise({
-            redirectTo: '/landing'
+            redirectTo: '/table'
         })
-        .when('/landing', {
-            templateUrl: 'views/test.html',
+        .when('/table', {
+            templateUrl: 'views/table.html',
             controller: 'TableController'
+        })
+        .when('/items/upload', {
+            templateUrl: 'views/uploadItem.html',
+            controller: 'ItemController'
+        })
+        .when('/items/single/:id', {
+            templateUrl: 'views/singleItem.html',
+            controller: 'ItemController'
         })
 }
 

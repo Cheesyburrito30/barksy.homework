@@ -1,0 +1,36 @@
+<div 
+ng-controller="TableController as vm"
+ng-init="vm.getObjects()"
+>
+    <h5>Filter By tags:</h5>
+    <p>for search with multiple tags, seperate each with a comma</p>
+    <input 
+        type="text" 
+        ng-model="vm.userFilter" 
+        ng-change="vm.filterTable(vm.userFilter)"
+        placeholder="Put Tags Here" />
+    <br>
+    <br>
+    <table class="table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <td>name</td>
+                <td>tags</td>
+                <td>created on</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.filteredObjects" ng-click="vm.tableRowClicked(item.key)">
+                <td>
+                    {{ item.name }}
+                </td>
+                <td>
+                    {{ item.tags }}
+                </td>
+                <td>
+                    {{ item.dateCreated }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -10,18 +10,18 @@ function FileService($log, AWS, Firebase) {
     
     return {
         getList: getFiles,
-        postFile: postFile
+        postFile: postFile,
+        getSingleItem: getSingleFile
     };
+    function getSingleFile(key) {
+        return new Promise ((resolve, reject) => {
+            database.ref(key).once('value', (snapshot) => {
+                resolve(snapshot.val())
+            })
+        })
+    }
     function getFiles() {
         return new Promise ((resolve, reject) => {
-            
-            // s3.listObjects({Bucket: 'barksy.homework'}, (err, data) => {
-            //     if (err) {
-            //         log(err)
-            //     } else {
-            //         resolve(data.Contents)
-            //     }
-            // })
             database.ref().once('value', (snapshot) => {
                 let results = [];
                 snapshot.forEach((childSnapshot) => {
@@ -37,6 +37,7 @@ function FileService($log, AWS, Firebase) {
             let newFileKey = getUniqueKey()
             config.s3.Key = newFileKey
             config.firebase.fileUrl = BASE_URL + newFileKey
+            config.firebase.key = newFileKey
             postFileToS3(config.s3)
             postFileToFirebase(config.firebase, newFileKey)
             resolve(config.firebase)

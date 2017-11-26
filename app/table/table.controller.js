@@ -2,9 +2,9 @@
 // ... once I figure out how to inject services into controllers
 
 
-TableController.$inject = ['$scope', 'FileService', '$log'];
+TableController.$inject = ['$scope', 'FileService', '$log', '$location'];
 
-function TableController($scope, FileService, $log) {
+function TableController($scope, FileService, $log, $location) {
     var vm = this;
     const log = $log.log;
 
@@ -12,12 +12,11 @@ function TableController($scope, FileService, $log) {
     vm.Objects = []
     vm.filteredObjects = []
     vm.getObjects = getObjectsHandler;
-    $scope.fileSelected = fileSelectedHandler;
     vm.filterTable = filterResultsByInput
-    vm.uploadImage = uploadImageHandler;
-    vm.formData = {
-        tags: '',
-        file: {}
+    vm.tableRowClicked = tableRowClicked
+
+    function tableRowClicked(rowId) {
+        $location.path(`/items/single/${rowId}`)
     }
     
     function getObjectsHandler() {
@@ -48,42 +47,6 @@ function TableController($scope, FileService, $log) {
                 }
             })
         })
-    }
-
-    function fileSelectedHandler(event) {
-        vm.formData.file = event.files
-    }   
-    
-    function uploadImageHandler() {
-        log(vm.formData)
-        let tags = []
-        tags.push(vm.formData.tags.split(', '))
-        log(tags[0])
-        config = setUpConfigForPost()
-        FileService.postFile(config)
-            .then(success => {
-                vm.unfilteredObjects.push(success)
-                $scope.$digest()
-            })
-    }
-    function setUpConfigForPost(){
-        let form = vm.formData
-        let today = new Date().toDateString()
-        let tags = []
-        tags.push(form.tags.split(', '))
-        return {
-            s3: {
-                Bucket: 'barksy.homework',
-                Key: '',
-                Body: form.file[0]
-            },
-            firebase: {
-                name: form.file[0].name,
-                tags: tags[0],
-                dateCreated: today,
-                fileUrl: ''
-            }
-        }
     }
 }
 
