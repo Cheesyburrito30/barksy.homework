@@ -2,17 +2,22 @@
     ng-controller="TableController as vm"
     ng-init="vm.getObjects()"
     >
+    <input type="text" ng-model="vm.userFilter" ng-change="vm.filterTable(vm.userFilter)">
     <table class="table-striped table-bordered table-hover">
         <thead>
             <tr>
                 <td>name</td>
+                <td>tags</td>
                 <td>created on</td>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in vm.Objects">
+            <tr ng-repeat="item in vm.filteredObjects">
                 <td>
                     {{ item.name }}
+                </td>
+                <td>
+                    {{ item.tags }}
                 </td>
                 <td>
                     {{ item.dateCreated }}
@@ -25,7 +30,8 @@
         ng-submit="vm.uploadImage()" >
         <input 
             type="text"
-            ng-model="vm.formData.tags">
+            ng-model="vm.formData.tags"
+            placeholder="Give it some tags!">
         <input 
             type="file" 
             ng-model="vm.formData.file"

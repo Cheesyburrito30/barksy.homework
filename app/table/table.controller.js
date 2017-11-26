@@ -10,8 +10,10 @@ function TableController($scope, FileService, $log) {
 
     let SelectedImage;
     vm.Objects = []
+    vm.filteredObjects = []
     vm.getObjects = getObjectsHandler;
-    $scope.fileSelected = fileSelectedHandler; 
+    $scope.fileSelected = fileSelectedHandler;
+    vm.filterTable = filterResultsByInput
     vm.uploadImage = uploadImageHandler;
     vm.formData = {
         tags: '',
@@ -23,9 +25,29 @@ function TableController($scope, FileService, $log) {
         FileService.getList()
             .then(success => {
                 log(success)
-                vm.Objects = success
+                vm.unfilteredObjects = success
+                vm.filteredObjects = success
                 $scope.$digest()
+                log(success[0].tags.includes('asdf'))
             })
+    }
+
+    function filterResultsByInput(input) {
+        let tagsToFilterBy = []
+        tagsToFilterBy.push(input.split(', '))
+        let filteredObjects = []
+        if(input === '') {
+            vm.filteredObjects = vm.unfilteredObjects
+        }
+        tagsToFilterBy[0].forEach(function searchByMultipleTags(tag){
+            log(tag)
+            vm.unfilteredObjects.forEach(function searchTagsForMatch(obj) {
+                if (obj.tags.includes(tag)) {
+                    filteredObjects.push(obj)
+                    vm.filteredObjects = filteredObjects
+                }
+            })
+        })
     }
 
     function fileSelectedHandler(event) {
@@ -40,7 +62,7 @@ function TableController($scope, FileService, $log) {
         config = setUpConfigForPost()
         FileService.postFile(config)
             .then(success => {
-                vm.Objects.push(success)
+                vm.unfilteredObjects.push(success)
                 $scope.$digest()
             })
     }
