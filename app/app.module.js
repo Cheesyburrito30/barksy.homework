@@ -1,5 +1,7 @@
 require('angular');
 require('angular-route');
+var dotenv = require('dotenv')
+dotenv.config()
 
 const Firebase = require('firebase'),
       TableController = require('./table/table.controller'),
@@ -18,21 +20,22 @@ angular.module('barksy', [
 .controller('TableController', TableController)
 
 // firebase DB
-var config = {
-    apiKey: "AIzaSyB9Y9L-k-SIc0HtGNgiaaSrv6Tb0Qph93I",
+var firebaseConfig = {
+    apiKey: process.env.firebaseApiKey,
     authDomain: "barksy-homework.firebaseapp.com",
     databaseURL: "https://barksy-homework.firebaseio.com",
     projectId: "barksy-homework",
     storageBucket: "",
     messagingSenderId: "1021630299133"
   };
+console.log(process.env.AWS_ACCESS_KEY_ID)
 
-Firebase.initializeApp(config);
+Firebase.initializeApp(firebaseConfig);
 
 AWS.config.update({
     accessKeyId: "AKIAII356TOHSUUFZMRA",
     secretAccessKey: "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",
-    region: 'us-east-2'
+    region: "us-east-2"
 })
 
 
