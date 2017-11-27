@@ -34,8 +34,3 @@ var firebaseConfig = {
 Firebase.initializeApp(firebaseConfig);
 
 
-awsconfig = new AWS.Config()
-awsconfig.accessKeyId = process.env.AWS_ACCESS_ID
-awsconfig.secretAccessKey = process.env.AWS_SECRET_KEY
-awsconfig.region = 'us-east-2'
-
