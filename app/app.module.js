@@ -35,8 +35,8 @@ console.log(process.env.AWS_ACCESS_KEY_ID)
 Firebase.initializeApp(firebaseConfig);
 
 AWS.config.update({
-    accessKeyId: "AKIAISOLRJCHYFKNQTNQ",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAIDAN42KGCFFNHODQ",
+    secretAccessKey: "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",
     region: "us-east-2"
 })
 

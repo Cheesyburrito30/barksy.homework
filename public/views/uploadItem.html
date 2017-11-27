@@ -2,9 +2,13 @@
     ng-controller="ItemController as vm"
     ng-init="vm.onInit()"
     class="container">
+    <p>On the herokuinstance, this doesn't actually deploy to S3, because I can't figure out how to make my AWS credentials to be hidden. Because of that, in all my repo-pushes, I've left an old set of AWS cred keys in the file. Everything else works as intended, on form submit, You post an application to firebase that has the file's name, tags, and image url (hosted on AWS, so that doesn't work). In the table view, you see all of Firebase's information, and can click on any row of the table to go to the individual item's page to look at the picture and download it (again, dependent on S3, so doesn't work).</p>
+    <h3>Upload your file!</h3>
     <form 
         name="myForm"
         ng-submit="vm.uploadImage()" >
+        <h3>Adding Tags:</h3>
+        <p>type, in one word, seperating with a ", " (comma and a space), your tags </p>
         <input 
             type="text"
             ng-model="vm.formData.tags"
@@ -14,6 +18,6 @@
             ng-model="vm.formData.file"
             onchange="angular.element(this).scope().fileSelected(this)"
         >
-        <button type="submit" class="btn btn-large btn-primary">Upload your shit dawg</button>
+        <button type="submit" class="btn btn-large btn-primary">Upload your file</button>
     </form>
 </div>
