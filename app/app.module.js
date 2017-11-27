@@ -27,7 +27,7 @@ var firebaseConfig = {
     authDomain: "barksy-homework.firebaseapp.com",
     databaseURL: "https://barksy-homework.firebaseio.com",
     projectId: "barksy-homework",
-    storageBucket: "",
+    storageBucket: "gs://barksy-homework.appspot.com/",
     messagingSenderId: "1021630299133"
   };
 

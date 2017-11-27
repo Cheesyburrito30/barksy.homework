@@ -42,7 +42,7 @@ function ItemController($scope, FileService, $log, $route, $routeParams, $locati
         tags.push(form.tags.split(', '))
         return {
             s3: {
-                Bucket: 'barksy.homework',
+                Bucket: process.env.BUCKETEER_BUCKET_NAME,
                 Key: '',
                 Body: form.file[0]
             },
