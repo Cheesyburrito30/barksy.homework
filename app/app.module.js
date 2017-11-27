@@ -23,21 +23,19 @@ angular.module('barksy', [
 
 // firebase DB
 var firebaseConfig = {
-    apiKey: "AIzaSyB9Y9L-k-SIc0HtGNgiaaSrv6Tb0Qph93I",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "barksy-homework.firebaseapp.com",
     databaseURL: "https://barksy-homework.firebaseio.com",
     projectId: "barksy-homework",
     storageBucket: "",
     messagingSenderId: "1021630299133"
   };
-console.log(process.env.AWS_ACCESS_KEY_ID)
 
 Firebase.initializeApp(firebaseConfig);
 
-AWS.config.update({
-    accessKeyId: "AKIAIDAN42KGCFFNHODQ",
-    secretAccessKey: "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",
-    region: "us-east-2"
-})
 
+awsconfig = new AWS.Config()
+awsconfig.accessKeyId = process.env.AWS_ACCESS_ID
+awsconfig.secretAccessKey = process.env.AWS_SECRET_KEY
+awsconfig.region = 'us-east-2'
 

@@ -48,7 +48,7 @@ function FileService($log, AWS, Firebase) {
             log(config)
             s3.putObject(config, (err, data) => {
                 if (err) {
-                    log(err)
+                    console.log(err)
                 } else {
                     resolve(data)
                 }
