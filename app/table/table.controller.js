@@ -36,6 +36,7 @@ function TableController($scope, FileService, $log, $location) {
         let tagsToFilterBy = []
         tagsToFilterBy.push(input.split(', '))
         let filteredObjects = []
+        vm.filteredObjects = filteredObjects
         if(input === '') {
             filteredObjects = []
             vm.filteredObjects = vm.Objects
@@ -46,8 +47,10 @@ function TableController($scope, FileService, $log, $location) {
             console.log(tag)
             vm.Objects.forEach(function searchTagsForMatch(obj) {
                 if (obj.tags.includes(tag)) {
-                    filteredObjects.push(obj)
+                    if (!filteredObjects.includes(obj)){
+                        filteredObjects.push(obj)
                     vm.filteredObjects = filteredObjects
+                    }
                 }
                 else {
                     vm.filteredObjects = filteredObjects

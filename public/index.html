@@ -5,10 +5,11 @@
     <title>Barksy.Homework</title>
     <script src="./js/app.module.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Rubik" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
-    <nav class="navbar navbar-default">
+<body style="background-color: #71DCCA;">
+    <nav class="navbar navbar-white">
         <div class="container-fluid">
             <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -16,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="#">Barksy</a>
+            <a class="barksyNavbarLogo navbar-brand" href="#"><img src="assets/Barksy - mark.svg" alt="" height="100%" /></a><span class="barksyLogoName">Barksy</span>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -27,7 +28,7 @@
         </div>
     </nav>
 
-    <ng-view></ng-view>
+    <ng-view style="background-color: #71DCCA;"></ng-view>
     
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"

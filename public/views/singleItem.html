@@ -1,7 +1,9 @@
 <div
     ng-controller="ItemController as vm"
     ng-init="vm.onInit()"
-    class="container">
+    class="container"
+    >
+    <img src="../assets/Barksy.svg" alt="">
     <img ng-src='{{ vm.itemInfo.fileUrl }}' alt="">
     <!-- <img src="https://firebasestorage.googleapis.com/v0/b/barksy-homework.appspot.com/o/-KzxvQt3WlRQHni9Oy" alt=""> -->
     <a href="{{ vm.itemInfo.fileUrl }}" download>CLICK ME</a>
