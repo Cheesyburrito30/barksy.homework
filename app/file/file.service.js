@@ -3,7 +3,8 @@ FileService.$inject = ['$log', 'AWS', 'Firebase'];
 function FileService($log, AWS, Firebase) {
     const log = $log.log;
     const s3 = new AWS.S3({
-        Bucket: 'barksy.homework'
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     });
     const database = Firebase.database()
     const BASE_URL = 'https://s3.us-east-2.amazonaws.com/barksy.homework/'
