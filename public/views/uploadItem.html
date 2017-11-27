@@ -16,6 +16,7 @@
             type="file" 
             ng-model="vm.formData.file"
             onchange="angular.element(this).scope().fileSelected(this)"
+            multiple="multiple"
         >
         <button type="submit" class="btn btn-large btn-primary">Upload your file</button>
     </form>

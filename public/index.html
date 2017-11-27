@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="barksy" ng-strict-di>
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Barksy.Homework</title>
     <script src="./js/app.module.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Cabin|Rubik" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Copse" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 <body style="background-color: #71DCCA;">
-    <nav class="navbar navbar-white">
+    <nav class="navbar navbar-white" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>                        
             </button>
-            <a class="barksyNavbarLogo navbar-brand" href="#"><img src="assets/Barksy - mark.svg" alt="" height="100%" /></a><span class="barksyLogoName">Barksy</span>
+            <a class="barksyNavbarLogo navbar-brand" href="#"><img src="assets/Barksy - mark.svg" alt="" height="100%" /></a><a href="#" class="barksyLogoLink"><span class="barksyLogoName">BARKSY</span></a>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#!/table">All Items</a></li>
-                    <li><a href="#!/items/upload">Upload a new item</a></li>
+                    <li class="active"><a href="#!/table"><b>All Items</b></a></li>
+                    <li><a href="#!/items/upload"><b>Upload Item</b></a></li>
                 </ul>
             </div>
         </div>
