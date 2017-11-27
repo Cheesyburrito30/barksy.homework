@@ -9,6 +9,7 @@ function TableController($scope, FileService, $log, $location) {
     const log = $log.log;
 
     let SelectedImage;
+    vm.unfilteredObjects = []
     vm.Objects = []
     vm.filteredObjects = []
     vm.getObjects = getObjectsHandler;
@@ -24,7 +25,7 @@ function TableController($scope, FileService, $log, $location) {
         FileService.getList()
             .then(success => {
                 log(success)
-                vm.unfilteredObjects = success
+                vm.Objects = success
                 vm.filteredObjects = success
                 $scope.$digest()
                 log(success[0].tags.includes('asdf'))
@@ -36,13 +37,19 @@ function TableController($scope, FileService, $log, $location) {
         tagsToFilterBy.push(input.split(', '))
         let filteredObjects = []
         if(input === '') {
-            vm.filteredObjects = vm.unfilteredObjects
+            filteredObjects = []
+            vm.filteredObjects = vm.Objects
+            // this throws an error, but doesn't crash page. Don't know why it throws and error, feature doesn't work without it.
+            $scope.$digest()
         }
         tagsToFilterBy[0].forEach(function searchByMultipleTags(tag){
-            log(tag)
-            vm.unfilteredObjects.forEach(function searchTagsForMatch(obj) {
+            console.log(tag)
+            vm.Objects.forEach(function searchTagsForMatch(obj) {
                 if (obj.tags.includes(tag)) {
                     filteredObjects.push(obj)
+                    vm.filteredObjects = filteredObjects
+                }
+                else {
                     vm.filteredObjects = filteredObjects
                 }
             })

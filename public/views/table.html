@@ -1,7 +1,9 @@
 <div 
-ng-controller="TableController as vm"
-ng-init="vm.getObjects()"
+    ng-controller="TableController as vm"
+    ng-init="vm.getObjects()"
+    class="container"
 >
+<div class="row">
     <h5>Filter By tags:</h5>
     <p>for search with multiple tags, seperate each with a comma</p>
     <input 
@@ -33,4 +35,5 @@ ng-init="vm.getObjects()"
             </tr>
         </tbody>
     </table>
+</div>
 </div>

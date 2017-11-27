@@ -1,3 +1,4 @@
+require('dotenv').config()
 const gulp = require('gulp')
 const connect = require('gulp-connect')
 var browserify = require('browserify')
@@ -8,13 +9,13 @@ const vendors = ['angular']
 gulp.task('connect', function() {
     connect.server({
         root: 'public',
-        port: 8000,
+        port: process.env.PORT || 8000,
         livereload: true
     })
 })
 
 gulp.task('html', function () {
-    gulp.src('./app/*.html')
+    gulp.src('./**/*.html')
     .pipe(connect.reload());
 });
 

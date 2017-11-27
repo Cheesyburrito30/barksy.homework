@@ -1,9 +1,9 @@
-.navbar-inverse .navbar-nav>.active>a {
-    color: #9d9d9d;
-    background-color: #222;
+.navbar-default .navbar-nav>.active>a {
+    color: #777;
+    background-color: #f8f8f8;
 }
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {
-  color: #fff;
-  background-color: #222;
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #777;
+  background-color: #f8f8f8;
 }

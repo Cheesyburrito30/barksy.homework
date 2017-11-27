@@ -1,6 +1,7 @@
 <div
     ng-controller="ItemController as vm"
-    ng-init="vm.onInit()">
+    ng-init="vm.onInit()"
+    class="container">
     <img ng-src='{{ vm.itemInfo.fileUrl }}' alt="">
     <a href="{{ vm.itemInfo.fileUrl }}" download>CLICK ME</a>
 </div>
