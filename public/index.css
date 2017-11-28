@@ -26,9 +26,16 @@
     color: #F85E70
 }
 .hamburger {
-    float: left;
     padding-bottom: 2px;
     padding-top: 6px;
+}
+@media only screen and (max-width: 768px) {
+    .barksyNavbarLogo {
+        margin-left: 22%;
+    }
+}
+.navbar-collapse{
+    text-align: right;
 }
 .barksyLogoLink:hover {
     text-decoration: none;
