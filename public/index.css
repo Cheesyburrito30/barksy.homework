@@ -7,7 +7,9 @@
   color: #F85E70;
   background-color: white;
 }
-
+.navbar-nav>li>a {
+    background-color: white !important;
+}
 .navbar-brand {
     padding: 0;
     padding-left: 10px;
@@ -31,6 +33,10 @@
     font-family: 'Copse', sans-serif;
     height:50px;
     font-size: 2.5em;
+    text-decoration: none;
+}
+.barksyLogoLink {
+    text-decoration: none !important;
 }
 .icon-bar {
     background-color: #333;

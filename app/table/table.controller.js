@@ -48,7 +48,7 @@ function TableController($scope, FileService, $log, $location) {
             console.log(tag)
             vm.Objects.forEach(function searchTagsForMatch(obj) {
                 obj.tags.forEach(objTag => {
-                    if (objTag.indexOf(tag) !== -1) {
+                    if (objTag.toLowerCase().indexOf(tag.toLowerCase()) !== -1) {
                         if(!filteredObjects.includes(obj)){
                             filteredObjects.push(obj)
                         } else {
