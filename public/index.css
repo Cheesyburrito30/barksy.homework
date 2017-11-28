@@ -25,6 +25,11 @@
     background-color: white;
     color: #F85E70
 }
+.hamburger {
+    float: left;
+    padding-bottom: 2px;
+    padding-top: 6px;
+}
 .barksyLogoLink:hover {
     text-decoration: none;
 }
@@ -38,8 +43,11 @@
 .barksyLogoLink {
     text-decoration: none !important;
 }
-.icon-bar {
+.navbar-white .icon-bar {
     background-color: #333;
+    height: 4px;
+    border-radius: 4px;
+    width: 27px;
 }
 .filterTableInput {
     height: 50px;
