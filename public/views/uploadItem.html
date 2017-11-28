@@ -19,7 +19,9 @@
                     <p>Seperate individual tags with a comma </p>
                     <h2>Select file to upload</h2>
                     <input 
-                        type="file" 
+                        type="file"
+                        accepts="'image/*'"
+                        capture="camera"
                         ng-model="vm.formData.file"
                         onchange="angular.element(this).scope().fileSelected(this)">
                     <br>
