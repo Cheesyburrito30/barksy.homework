@@ -47,15 +47,24 @@ function TableController($scope, FileService, $log, $location) {
         tagsToFilterBy[0].forEach(function searchByMultipleTags(tag){
             console.log(tag)
             vm.Objects.forEach(function searchTagsForMatch(obj) {
-                if (obj.tags.includes(tag)) {
-                    if (!filteredObjects.includes(obj)){
-                        filteredObjects.push(obj)
-                    vm.filteredObjects = filteredObjects
+                obj.tags.forEach(objTag => {
+                    if (objTag.indexOf(tag) !== -1) {
+                        if(!filteredObjects.includes(obj)){
+                            filteredObjects.push(obj)
+                        } else {
+                            vm.filteredObjects = filteredObjects
+                        }
                     }
-                }
-                else {
-                    vm.filteredObjects = filteredObjects
-                }
+                })
+                // if (obj.tags.includes(tag)) {
+                //     if (!filteredObjects.includes(obj)){
+                //         filteredObjects.push(obj)
+                //     vm.filteredObjects = filteredObjects
+                //     }
+                // }
+                // else {
+                //     vm.filteredObjects = filteredObjects
+                // }
             })
         })
     }
