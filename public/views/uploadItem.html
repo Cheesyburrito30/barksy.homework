@@ -20,7 +20,7 @@
                     <h2>Select file to upload</h2>
                     <input 
                         type="file"
-                        accepts="'image/*'"
+                        accept="image/*"
                         capture="camera"
                         ng-model="vm.formData.file"
                         onchange="angular.element(this).scope().fileSelected(this)">
