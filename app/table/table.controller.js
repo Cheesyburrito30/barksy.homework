@@ -1,7 +1,3 @@
-// THIS IS WAY TOO MUCH IN A CONTROLLER, PUT MOST OF THIS IN A SERVICE
-// ... once I figure out how to inject services into controllers
-
-
 TableController.$inject = ['$scope', 'FileService', '$log', '$location'];
 
 function TableController($scope, FileService, $log, $location) {
@@ -61,7 +57,6 @@ function TableController($scope, FileService, $log, $location) {
     }
     function orderByDate() {
         vm.filteredObjects.reverse()
-        // $scope.$digest()
     }
 }
 
