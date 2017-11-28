@@ -8,11 +8,11 @@
         <div class="container">
             <div class="row">
                 <div class="container">
-                    <div class=" col-xs-12 col-md-offset-1 col-md-2">
-                    <h3>File Preview:</h3>
-                    <img ng-src='{{ vm.itemInfo.fileUrl }}' alt="">
-                    </div>
-                    <div class=" col-xs-12 col-md-offset-1 col-xs-6">
+                    <div class="row">
+                    <h3 class="container">File Preview:</h3>
+                    <img ng-src='{{ vm.itemInfo.fileUrl }}' class="col-xs-12 col-md-3" alt="">
+                    
+                    <div class=" col-xs-12 col-md-offset-1 col-md-7">
                         <div class="cardTitle">
                         {{ vm.itemInfo.name }}
                         </div>
@@ -21,7 +21,10 @@
                         <ul>
                             <li ng-repeat="tag in vm.itemInfo.tags"> {{ tag }}</li>
                         </ul>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-3 col-md-offset-1">
                         <a href="{{ vm.itemInfo.fileUrl }}" download><button class="btn btn-lg downloadButton">Download File</button></a>
+                    </div>
                     </div>
                 </div>
             </div>
