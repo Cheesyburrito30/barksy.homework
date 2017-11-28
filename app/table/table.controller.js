@@ -56,15 +56,6 @@ function TableController($scope, FileService, $log, $location) {
                         }
                     }
                 })
-                // if (obj.tags.includes(tag)) {
-                //     if (!filteredObjects.includes(obj)){
-                //         filteredObjects.push(obj)
-                //     vm.filteredObjects = filteredObjects
-                //     }
-                // }
-                // else {
-                //     vm.filteredObjects = filteredObjects
-                // }
             })
         })
     }

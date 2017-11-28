@@ -63,12 +63,8 @@ function FileService($log, AWS, Firebase) {
     }
     function postFileToFirebaseStorage(config) {    
         return new Promise ((resolve, reject) => {
-            // const storageRef = storage.ref((config.Key));
-            // storageRef.put(config.Body).then(url => storageRef.getDownloadUrl().then(url => {
-            //     log(url)
-            // }))
             const storageRef = storage.ref()
-            const imageRef = storageRef.child(config.Key)
+            const imageRef = storageRef.child(`${config.Key}/${config.Body.name}`)
             let imageUrl;
             imageRef.put(config.Body).then(success => {
                 resolve(uploadedImageUrl = success.metadata.downloadURLs[0])
