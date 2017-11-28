@@ -15,6 +15,7 @@ function TableController($scope, FileService, $log, $location) {
     vm.getObjects = getObjectsHandler;
     vm.filterTable = filterResultsByInput
     vm.tableRowClicked = tableRowClicked
+    vm.orderByDateCreated = orderByDate
 
     function tableRowClicked(rowId) {
         $location.path(`/items/single/${rowId}`)
@@ -57,6 +58,10 @@ function TableController($scope, FileService, $log, $location) {
                 }
             })
         })
+    }
+    function orderByDate() {
+        vm.filteredObjects.reverse()
+        // $scope.$digest()
     }
 }
 

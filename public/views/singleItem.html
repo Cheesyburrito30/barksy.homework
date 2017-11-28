@@ -3,8 +3,28 @@
     ng-init="vm.onInit()"
     class="container"
     >
-    <img src="../assets/Barksy.svg" alt="">
-    <img ng-src='{{ vm.itemInfo.fileUrl }}' alt="">
-    <!-- <img src="https://firebasestorage.googleapis.com/v0/b/barksy-homework.appspot.com/o/-KzxvQt3WlRQHni9Oy" alt=""> -->
-    <a href="{{ vm.itemInfo.fileUrl }}" download>CLICK ME</a>
+    <br>
+    <div class="singleItemCard col-md-offset-2 col-md-8">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class=" col-xs-12 col-md-offset-1 col-md-2">
+                    <h3>File Preview:</h3>
+                    <img ng-src='{{ vm.itemInfo.fileUrl }}' alt="">
+                    </div>
+                    <div class=" col-xs-12 col-md-offset-1 col-xs-6">
+                        <div class="cardTitle">
+                        {{ vm.itemInfo.name }}
+                        </div>
+                        <br>
+                        <h3>Tags:</h3>
+                        <ul>
+                            <li ng-repeat="tag in vm.itemInfo.tags"> {{ tag }}</li>
+                        </ul>
+                        <a href="{{ vm.itemInfo.fileUrl }}" download><button class="btn btn-lg downloadButton">Download File</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

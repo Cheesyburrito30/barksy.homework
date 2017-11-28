@@ -6,6 +6,7 @@ function ItemController($scope, FileService, $log, $route, $routeParams, $locati
 
     vm.onInit = retrieveFileInformationFromFirebase
     vm.itemInfo = {}
+    vm.isFileSelected = false
     $scope.fileSelected = fileSelectedHandler;
     vm.uploadImage = uploadImageHandler;
     vm.formData = {
@@ -16,6 +17,7 @@ function ItemController($scope, FileService, $log, $route, $routeParams, $locati
     function retrieveFileInformationFromFirebase() {
         let fileKey = $routeParams.id
         FileService.getSingleItem(fileKey).then(success => {
+            log(success)
             vm.itemInfo = success
             log(vm.itemInfo.fileUrl)
             $scope.$digest()
@@ -23,6 +25,10 @@ function ItemController($scope, FileService, $log, $route, $routeParams, $locati
     }
     function fileSelectedHandler(event) {
         vm.formData.file = event.files
+        vm.isFileSelected = true
+        $scope.$digest()
+        let preview = document.getElementById('fileSelectedPreview')
+        preview.src = URL.createObjectURL(event.files[0])
     }
     function uploadImageHandler() {
         log(vm.formData)
