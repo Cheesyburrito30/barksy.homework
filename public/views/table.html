@@ -24,7 +24,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="item in vm.filteredObjects track by $index" ng-click="vm.tableRowClicked(item.key)">
-                    <td class="col-xs-4">
+                    <td class="col-xs-4 tableItemName">
                         {{ item.name }}
                     </td>
                     <td class="col-xs-4">

@@ -33,6 +33,15 @@
     .barksyNavbarLogo {
         margin-left: 22%;
     }
+    .navbar-collapse{
+        background-color:#ffc107;
+        position: fixed;
+        top: 0;
+        transition:all 0.8s ease-out;
+        height: 100%;
+        width: 100%;
+        left: 700px;
+      }
 }
 .navbar-collapse{
     text-align: right;
@@ -67,6 +76,9 @@
 .table {
     background-color: white;
     border-radius: 5px;
+}
+.tableItemName {
+    word-break: break-all;
 }
 .table-hover > tbody > tr:hover {
     background-color: rgb(221, 221, 221);
